@@ -23,7 +23,7 @@ node[:deploy].each do |application, deploy|
 
   template 'nginx site' do
     path ::File.join('/etc/nginx/sites-enabled/', deploy[:environment][:dns_name])
-    source 'site-2.erb'
+    source 'site.erb'
     owner 'root'
     group 'root'
     mode 0644
