@@ -1,3 +1,3 @@
 source "https://api.berkshelf.com"
 cookbook 'python'
-cookbook 'mongodb-10gen', '~> 0.3.0'
+cookbook 'mongodb-10gen', '~> 0.4.1'
