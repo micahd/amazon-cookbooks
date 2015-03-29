@@ -1,0 +1,73 @@
+[inet_http_server]
+port = *:9001
+
+[program:postFacebook]
+command=/usr/bin/php postFacebook.php
+process_name=postFacebook%(process_num)s
+numprocs=8
+directory=/srv/www/deploy_to_web/current/batchOfflinePost/
+autostart=true
+autorestart=true
+startsecs=2
+startretries=3
+
+[program:postFacebookPhoto]
+command=/usr/bin/php postFacebookPhoto.php
+process_name=postFacebookPhoto%(process_num)s
+numprocs=3
+directory=/srv/www/deploy_to_web/current/batchOfflinePost/
+autostart=true
+autorestart=true
+startsecs=2
+startretries=3
+
+[program:postTwitter]
+command=/usr/bin/php postTwitter.php
+process_name=postTwitter%(process_num)s
+numprocs=4
+directory=/srv/www/deploy_to_web/current/batchOfflinePost/
+autostart=true
+autorestart=true
+startsecs=2
+startretries=3
+
+[program:deleteUser]
+command=/usr/bin/php deleteUser.php
+process_name=deleteUser%(process_num)s
+numprocs=1
+directory=/srv/www/deploy_to_web/current/batchOfflinePost/
+autostart=true
+autorestart=true
+startsecs=10
+startretries=3
+
+[program:QueueEmails]
+command=/usr/bin/php QueueEmails.php
+process_name=QueueEmails%(process_num)s
+numprocs=1
+directory=/srv/www/deploy_to_web/current/batchMail/
+autostart=true
+autorestart=true
+startsecs=10
+startretries=3
+
+[program:EventNewUser]
+command=/usr/bin/php event_new_user.php
+process_name=EventNewUser%(process_num)s
+numprocs=8
+directory=/srv/www/deploy_to_web/current/batch/
+autostart=true
+autorestart=true
+startsecs=1
+startretries=3
+
+[program:PostTumblr]
+command=/usr/bin/node postTumblr.js
+process_name=PostTumblr%(process_num)s
+numprocs=1
+directory=/srv/www/deploy_to_web/current/nodejs/
+autostart=true
+autorestart=true
+startsecs=1
+startretries=3
+

@@ -1,0 +1,11 @@
+  <Directory /srv/www/deploy_to_web/current/public/>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.*)$ index.php [QSA,L]
+  </Directory>
+
+  RewriteEngine On
+
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET,POST,OPTION"
+  Header set Access-Control-Allow-Headers "x-prototype-version,x-requested-with"

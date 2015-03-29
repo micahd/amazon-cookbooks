@@ -1,5 +1,5 @@
 upstream app_<%= node['deploy'][@webapp_name][:environment][:dns_name] %> {
-    server 0.0.0.0:<%= node['deploy'][@webapp_name][:environment][:port] %>;
+    server 127.0.0.1:<%= node['deploy'][@webapp_name][:environment][:port] %>;
 }
 
 server {
