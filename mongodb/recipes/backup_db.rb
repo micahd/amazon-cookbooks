@@ -4,7 +4,7 @@ db_name = "#{node[:db_name]}"
 folder_name = "#{node[:file_prefix]}_db_backup-#{db_name}-#{time_now}"
 archive_name = "#{folder_name}.tar.gz"
 archive_path = "#{base_folder}/#{archive_name}"
-bucket_name = "jaybird-mongodb-dump"
+bucket_name = "#{node[:bucket_name]}"
 
 aws_sdk_gem_name = "aws-sdk-v1"
 

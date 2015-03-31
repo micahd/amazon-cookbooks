@@ -2,7 +2,7 @@ base_folder= "/home/ubuntu"
 time_now = Time.now.strftime("%Y-%m-%d_%H-%M")
 folder_name = "#{node[:file_prefix]}_dbs_backup-#{time_now}"
 archive_name = "#{base_folder}/#{folder_name}.tar.gz"
-bucket_name = "jaybird-mongodb-dump"
+bucket_name = "#{node[:bucket_name]}"
 
 bash "dbs_backup" do
   user "ubuntu"
